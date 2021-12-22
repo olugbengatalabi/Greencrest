@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  
+
+<!--Main layout-->
+<main class=" pt-4 mt-5">
+  {% include 'partials/_alerts.html' %}
+    <div class="container dark-grey-text mt-5">
+      
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+          
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
+          
+        </div>
+        <!--Grid column-->
+        
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+          
+          <!--Content-->
+          <div class="p-4">
+            
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">{{product.get_category_display}}</span>
+              </a>
+              <a href="">
+                <span class="badge blue mr-1">{{product.get_label_display}}</span>
+              </a>
+
+            </div>
+            
+            <p class="lead">
+              {% if product.discount_price %}
+              <span class="mr-1">${{product.price}}
+              </span>
+              <span>${{product.discount_price}}</span>
+              {% else %}
+              <p>${{product.price}}</p>
+              {% endif %}
+
+            </p>
+            
+            <p class="lead font-weight-bold">Description</p>
+
+            <p>{{product.description}}</p>
+              
+            {% if in_cart %}
+            <form class="d-flex justify-content-left" method="GET">
+              <button class="btn btn-primary btn-md my-0 p" type="submit"><a href="{% url 'index' %}">
+                view in cart
+              </a>
+              
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </button>
+              <button class="btn btn-primary btn-md my-0 p" type="submit"><a href="{% url 'remove-from-cart' product.id %}">
+              Remove from cart
+            </a>
+            
+            <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+            </form>
+            {% else %}
+              <form  action="{%url 'add-to-cart' product.id %}" method="POST">
+                {% csrf_token %}
+                <div class= "container">
+                  <label for="quantity">Quantity</label>
+                  <input name = "quantity" value = "1" required type="number" autofocus>
+                </div>
+                <button class="btn btn-primary btn-md my-0 p" type="submit">
+                  Add to cart
+                  <i class="fas fa-shopping-cart ml-1"></i>
+                </button>
+              </form>
+              {% endif %}
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+        
+      </div>
+      <!--Grid row-->
+      
+      <hr>
+
+      <!--Grid row-->
+     
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+        
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+          
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+          
+        </div>
+        <!--Grid column-->
+        
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+  
+  {% endblock content %}

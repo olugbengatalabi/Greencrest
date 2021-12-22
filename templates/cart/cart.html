@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}  
+  <main class="mt-5 p-5">
+    <h2>Ordersummary</h2>
+    <div class="container">
+      <div class="table-responsive text-nowrap">
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total product price</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for cart_item in cart_items %}
+            <tr>
+              
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{cart_item.product.title}}</td>
+              
+              {% if cart_item.product.discount_price %}
+              <td> Discounted to: ${{cart_item.product.discount_price}}</td>
+              {% else %}
+              <td>${{cart_item.product.price}}</td>
+              {% endif %}
+              <td>{{cart_item.quantity}}</td>
+              <td>${{cart_item.line_total}}</td>
+              <td>
+                <a href="{%url 'remove-from-cart-page' cart_item.id%}"><i class="fas fa-trash"></i></a>
+              </td>
+              
+              
+            </tr>
+            {% endfor %}
+            <tr>
+              <td colspan="4">
+                <b>Order Total</b>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <a href="" class="btn btn-primary float-right">Continue shopping</a>
+                <a href="{%url 'checkout'%}" class="btn btn-warning float-right">Proceed to checkout</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Total: {{cart_total}}</p>
+      </div>
+    </div>
+  </main>
+{% endblock content %}
+  

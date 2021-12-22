@@ -1,0 +1,22 @@
+list all products in a way similar to that in index
+or use the style of the steps in the index
+add a search icon in the navbar
+add a cart counter in the navbar
+create an alternative no result found to display when search input returns none
+add a hover under line to the categories nav and this underline stays there when thats the category in view
+do you want it load all the queryset at once and then filter it by category in your forloop or do you want to load the categories on in a way that make you have to refresh the page anytime a new category is selected
+
+
+fix the search bar
+add a clear button
+render the products dynamically
+change the components of the navbar
+give the footer a ligh background color
+set up the backend of the search functionality
+set up product images
+set up thumnail images
+make the discounted price show at the all products page
+create a page to view details on individual products
+improve or remove the labels.
+if improve, remove blank = True
+
