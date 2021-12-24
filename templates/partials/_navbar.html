@@ -16,23 +16,25 @@
                       <li class="nav__item">
                           <a href="#products" class="nav__link">Products</a>
                       </li>
-                      
-                      {% if user.is_authenticated %}
-                      <li class="nav__item">
-                        <a href="{% url 'cart'%}" class="nav__link">Cart</a>
-                        <span class=""> {{request.user|cart_item_count}} </span>
-                    </li>
-                    <li class="nav__item ">
-                        <a href="#contact" class="nav__link">Contact Us</a>
-                    </li>
-                      {% endif %}
-                          
-                      <li class="nav__item">
-                        <a href="#faqs" class="nav__link">FAQs</a>
-                    </li>
+
+                        
+                        {% if user.is_authenticated %}
                     <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact Us</a>
+                        <a href="{% url 'account_logout'%}" class="nav__link"> Logout <span>
+                            <i class="ri-logout-box-line button__icon"></i></a>
+                        </span>
                     </li>
+                        {% else %}
+                        <li class="nav__item">
+                            <a href="{% url 'account_signup'%}" class="nav__link"> Signup
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="{% url 'account_login'%}" class="nav__link"> Login </a>
+                        </li>
+                            
+                        {% endif %}
+
                       
                           
                   </ul>
@@ -43,7 +45,17 @@
               <div class="nav__btns">
                   <!-- Theme change button -->
                   <i class="ri-moon-line change-theme" id="theme-button"></i>
+                  
+                  {% if user.is_authenticated %}
+                  <div class="cart">
+                      <a href="{% url 'cart'%}" class="nav__link cart__btn"><i class="ri-shopping-basket-line "></i></a>
+                      <span class="cart__count"> {{request.user|cart_item_count}} </span>
+                      
+                  </div>
+                {% else %}
 
+                  {% endif %}
+                      
                   <div class="nav__toggle" id="nav-toggle">
                       <i class="ri-menu-line"></i>
                   </div>

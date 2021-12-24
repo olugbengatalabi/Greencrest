@@ -6,7 +6,6 @@ from .models import Product
 from django.db.models.query_utils import Q
 
 
-
 def product_list(request):
   queryset = Product.objects.filter(featured = True)
   if request.method == "GET":

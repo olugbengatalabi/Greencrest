@@ -22,6 +22,7 @@ class Product(models.Model):
   price = models. DecimalField(decimal_places=2, max_digits=100)
   discount_price = models.DecimalField(decimal_places=2, max_digits=100, null = True, blank = True)
   featured = models.BooleanField(default=True)
+  display_on_homepage = models.BooleanField(default= True)
   category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
   label = models.CharField(choices=LABEL_CHOICES, max_length=1, blank = True, null = True)
   description = models.TextField()

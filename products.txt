@@ -20,3 +20,5 @@ create a page to view details on individual products
 improve or remove the labels.
 if improve, remove blank = True
 
+all objects to be related to oneanother so you can show similar objects ---- optional
+

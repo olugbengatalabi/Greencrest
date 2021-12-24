@@ -1,6 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Playfair+Display+SC:wght@700&family=Poppins:wght@500;600&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -104,6 +103,9 @@ h1,h2,h3{
 h1,h2 {
   font-family: var(--header-font);
 }
+/* h2 {
+  font-family: 'Delius Swash Caps', cursive;
+} */
 
 ul{
   list-style: none;
@@ -111,7 +113,7 @@ ul{
 
 a{
   text-decoration: none;
-  color: var(--body-color);
+  color: #FFF;
 }
 
 img{
@@ -128,8 +130,9 @@ img{
 .nav__btns{
   display: inline-flex;
   align-items: center;
-  column-gap: 1rem;
+  column-gap: 1rem;;
 }
+
 /*========== Variables Dark theme ==========*/
 body.dark-theme{
   --first-color-dark: hsl(var(--hue), 8%, 20%);
@@ -151,7 +154,8 @@ the website, in dark theme
 }
 
 .dark-theme .product__circle,
-.dark-theme .footer__subscribe{
+.dark-theme .footer__subscribe,
+.dark-theme .footer{
   background-color: var(--container-color);
 }
 
@@ -233,6 +237,31 @@ the website, in dark theme
   display: inline-flex;
   font-size: 1.25rem;
   cursor: pointer;
+}
+.cart {
+  position: relative;
+  /* display: inline-flex;
+  justify-content: center; */
+}
+.cart__btn {
+  display: inline-flex;
+  color: var(--title-color);
+  font-size: 1.5rem;
+  /* font-size: 1.25rem; */
+  cursor: pointer;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+.cart__count{
+  position: absolute;
+  bottom: 1rem;
+  left: 0.8rem;
+  /* left: 1.9rem; */
+  font-size: 0.8rem;
+  background-color: var(--first-color);
+  padding: 0.06rem 0.3rem;
+  color: #FFF;
+  border-radius: 8px;
 }
 
 @media screen and (max-width: 767px) {
@@ -643,10 +672,14 @@ the website, in dark theme
   height: 100%;
   padding: 1rem 1rem 1rem 0;
   background: none;
+
   color: var(--text-color);
+
+  
   border: none;
   outline: none;
   z-index: 1;
+  overflow: hidden;
 }
 
 .contact__label{
@@ -657,14 +690,14 @@ the website, in dark theme
   color: var(--text-color-light);
   transition: .3s;
 }
-
 .contact__area{
-  height: 7rem;
+  height: 2rem;
 }
 
 .contact__area textarea{
   resize: none;
 }
+
 /*Input focus move up label*/
 .contact__input:focus + .contact__label{
   top: -.75rem;
@@ -685,6 +718,9 @@ the website, in dark theme
 /*=============== FOOTER ===============*/
 .footer__container{
   row-gap: 3rem;
+}
+.footer {
+  background-color: var(--first-color-light);
 }
 
 .footer__logo{
@@ -805,7 +841,7 @@ the website, in dark theme
 }
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar{
-  width: .6rem;
+  width: .8rem;
   background: hsl(var(--hue), 4%, 53%);
 }
 
@@ -885,7 +921,24 @@ the website, in dark theme
   .nav__menu{
     margin-left: auto;
   }
-
+  .nav__btns{
+    border: 2.5px solid var(--title-color);
+    border-radius: 5px;
+    padding: 0.2rem 1.1rem 0.2rem 0.9rem;
+  }
+  .cart__btn {
+    color: var(--title-color);
+    font-size: 1.25rem;
+    margin-top: 0.3rem;
+  }
+  .cart__count{
+    bottom: 1.5rem;
+    left: 1.9rem;
+    padding: 0.08rem 0.3rem;
+    color: #FFF;
+    border-radius: 8px;
+  }
+  
   .home__container,
   .about__container,
   .questions__container,
@@ -945,6 +998,7 @@ the website, in dark theme
   .home__description{
     padding-right: 7rem;
   }
+
 
   .about__img{
     width: 380px;

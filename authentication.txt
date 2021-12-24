@@ -1,0 +1,5 @@
+make default login requirements to email not username
+make logout not show confirmation
+customize login, signup, password confirmation, forgot password, change password page
+setup google auth
+setup order history, open dispute, reviews and stars
