@@ -23,11 +23,14 @@ def product_list(request):
 
 def single_product(request, id):
   product = get_object_or_404(Product, id = id)
+  images_qs = product.productimage_set.all()
   in_cart = False
-  if CartItem.objects.filter(product = product, user = request.user, ordered = False).exists():
-    in_cart = True
+  if request.user.is_authenticated:
+    if CartItem.objects.filter(product = product, user = request.user, ordered = False).exists():
+      in_cart = True
   context = {
     "product": product,
-    "in_cart": in_cart
+    "in_cart": in_cart,
+    "images": images_qs
   }
   return render(request, "products/single-product.html", context)

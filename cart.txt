@@ -1,0 +1,4 @@
+fix the decimal and floatfield  problem
+add the content of the container class to the cart container
+change the color to the title color
+fix the buttpns

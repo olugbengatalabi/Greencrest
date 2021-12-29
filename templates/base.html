@@ -18,19 +18,33 @@
 
 </head>
 <body>
+  
+  {% if not "accounts" in request.path %}
   {% include 'partials/_navbar.html' %}
+  {% endif %}
+  {% include 'partials/_alerts.html' %}
   {% block content %}
   {% endblock content %}
   <!-- {% block extra_body %}
   {% endblock %} -->
-  {% include 'partials/_footer.html' %}
+  <!--=============== SCROLL UP ===============-->
+  <a href="#" class="scrollup" id="scroll-up"> 
+    <i class="ri-arrow-up-fill scrollup__icon"></i>
+</a>
+
+{% if not "accounts" in request.path%}
+ 
+{% include 'partials/_footer.html' %}
+{% endif %}
 
   <script src="{% static 'js/scrollreveal.min.js' %}"></script>
-        
-  <!--=============== MAIN JS ===============-->
-  <script src="{% static 'js/main.js'%}"></script>
   {% block script %}
   {% endblock script %}
+        
+  <!--=============== MAIN JS ===============-->
+
+  <script src="{% static 'js/main.js'%}"></script>
+
 
 </body>
   

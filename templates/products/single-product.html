@@ -4,131 +4,98 @@
 {% block title %}
   {{product.title}}
 {% endblock title %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{%static 'css/swiper-bundle.min.css'%}">
+<link rel="stylesheet" href="{% static 'css/single-product.css'%}">
+{% endblock stylesheet %}
+  
   
 {% block content %}
   
 
 <!--Main layout-->
-<main class=" pt-4 mt-5">
-  {% include 'partials/_alerts.html' %}
-    <div class="container dark-grey-text mt-5">
-      
-      <!--Grid row-->
-      <div class="row wow fadeIn">
-        
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
-          
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
-          
-        </div>
-        <!--Grid column-->
-        
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
-          
-          <!--Content-->
-          <div class="p-4">
-            
-            <div class="mb-3">
-              <a href="">
-                <span class="badge purple mr-1">{{product.get_category_display}}</span>
-              </a>
-              <a href="">
-                <span class="badge blue mr-1">{{product.get_label_display}}</span>
-              </a>
 
-            </div>
-            
-            <p class="lead">
-              {% if product.discount_price %}
-              <span class="mr-1">${{product.price}}
-              </span>
-              <span>${{product.discount_price}}</span>
-              {% else %}
-              <p>${{product.price}}</p>
-              {% endif %}
 
-            </p>
-            
-            <p class="lead font-weight-bold">Description</p>
+  <main class="container" >
+    <section class=" description__container">
+      <h1>{{product.title}}</h1>
+      <h2 class="product__category">{{product.get_category_display}}</h2>
+      <p class="product__discription">{{product.description}}</p>
+      {% if product.discount_price %}
+    <div class = "price__container">
+      <p class="line-through">${{product.price}}<p/>
+    <span class="product__price">${{product.discount_price}}</span>
+    {% else %}
+    <span class="product__price">${{product.price}}</span>
+  </div>
+    {% endif %}
 
-            <p>{{product.description}}</p>
-              
-            {% if in_cart %}
-            <form class="d-flex justify-content-left" method="GET">
-              <button class="btn btn-primary btn-md my-0 p" type="submit"><a href="{% url 'index' %}">
-                view in cart
-              </a>
-              
-              <i class="fas fa-shopping-cart ml-1"></i>
-            </button>
-              <button class="btn btn-primary btn-md my-0 p" type="submit"><a href="{% url 'remove-from-cart' product.id %}">
-              Remove from cart
-            </a>
-            
-            <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
-            </form>
-            {% else %}
-              <form  action="{%url 'add-to-cart' product.id %}" method="POST">
-                {% csrf_token %}
-                <div class= "container">
-                  <label for="quantity">Quantity</label>
-                  <input name = "quantity" value = "1" required type="number" autofocus>
-                </div>
-                <button class="btn btn-primary btn-md my-0 p" type="submit">
-                  Add to cart
-                  <i class="fas fa-shopping-cart ml-1"></i>
-                </button>
-              </form>
-              {% endif %}
+    </section>
+    <section class=" image_container">
+      <div class="image__container swiper-container">
+        <div class="swiper-wrapper producti__img">
+          <!-- portfolio 1 -->  
+          {% for image in images %}
+          <div class="swiper-slide">
+            <img src='{{image.image.url}}' class="image">
 
           </div>
-          <!--Content-->
+            {% endfor %}
 
-        </div>
-        <!--Grid column-->
         
       </div>
-      <!--Grid row-->
+        <!-- prev and next -->
+        <div class="swiper-button-next">
+          <i class="ri-arrow-right-line swiper-portfolio-icon"></i>
+        </div>
+        <div class="swiper-button-prev">
+          <i class="ri-arrow-left-line swiper-portfolio-icon"></i>
+        </div>
+
+        <!-- pagination -->
+        <div class="swiper-pagination">
+          
+        </div>
+      </div>
+    </section>
+    <section class=" cart__container">
+      {% if not in_cart %}
+      <form method="POST" action = "{%url 'add-to-cart' product.id%}" class= "quantity-form__container">
+        {% csrf_token %}
+        <div class="quantity__container">
+
+          <label class = "quantity_label" for="quantity">Quantity</label>
+          <input name = "quantity" class="quantity" value = "1" required type="number" autofocus min="1" max="{{product.quantity_available2}}">
+        </div>
+        <button class="add-to-cart__button" id="cart-btn">
+          Add to cart <i class="ri-add-circle-fill button__icon"></i>
+        </button>
+      </form>
       
-      <hr>
+      {% else %}
+      <div class=" cart-btn-group">
 
-      <!--Grid row-->
-     
-      <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-        
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
-          
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
-          
-        </div>
-        <!--Grid column-->
-        
-      </div>
-      <!--Grid row-->
-
+        <a href="{% url 'cart'%}" class="add-to-cart__button" id="cart-btn">
+        View in Cart<i class="ri-eye-fill button__icon"></i>
+      </a>
+      <a href="{% url 'remove-from-cart' product.id%}" class="remove-from-cart__button" id="cart-btn">
+        Remove <i class="ri-delete-bin-2-fill button__icon"></i>
+      </a>
     </div>
+      {% endif %}
+
+    </section>
   </main>
   <!--Main layout-->
 
   
   {% endblock content %}
+  
+  {% block script %}
+  <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/single-product.js'%}">
+
+    </script>
+  {% endblock script %}
+    

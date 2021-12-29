@@ -1,0 +1,29 @@
+main {
+  padding: 2.5rem;
+  margin: 5rem auto 0rem auto;
+}
+.close__icon{
+  color: var(--body-color);
+}
+th {
+  margin: 1rem;
+}
+table {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: red solid 2px;
+  margin: auto;
+}
+.table-items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: red solid 2px;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+td {
+  border: solid red 2px;
+}

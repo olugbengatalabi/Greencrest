@@ -11,53 +11,10 @@
       <h1 class="section__title-center">
           Our Products
       </h1>
-      <!-- <div>
-        <header class="categories " id="header">
-          <nav class="nav categories_nav container">
-              
-              <div class="categories__menu" id="categories-menu">
-                  <ul class="nav__list">
-                      <li class="nav__item">
-                          <a href="#home" class="nav__link">Succulent</a>
-                      </li>
-                      <li class="nav__item">
-                          <a href="#about" class="nav__link">Ferns</a>
-                      </li>
-                      <li class="nav__item">
-                          <a href="#products" class="nav__link">Climbing</a>
-                      </li>
-                      <li class="nav__item">
-                          <a href="#faqs" class="nav__link">Cactus</a>
-                      </li>
-                      <li class="nav__item">
-                          <a href="#contact" class="nav__link">Flowering</a>
-                      </li>
-                  </ul>
-                  <div class="nav__close" id="categories-close">
-                      <i class="ri-close-line"></i>
-                  </div>
-              </div>
-              <div class="nav__btns">
-                  <div class="nav__toggle" id="categories-toggle">
-                      <i class="ri-menu-line"></i><span></span>
-                  </div>
-              </div>
-          </nav>
-      </header>
-      </div> -->
-      <!-- <div class="categories">
-        <ul>
-          <li class="categories__links">Succulent</li>
-          <li class="categories__links">Ferns</li>
-          <li class="categories__links">Climbing</li>
-          <li class="categories__links">Ferns</li>
-          <li class="categories__links">Cactus</li>
-        </ul>
-      </div> -->
       <form method = "GET"action="{%url 'product_list'%}">
 
         <div class="wrapper">
-          <i class="ri-search-fill search-icon"></i>
+          <i class="ri-search-eye-line search-icon"></i>
           <input class="search" placeholder="Search" type="text" name = "search">
           <i class=" ri-close-fill clear-icon"></i>
         </div>
@@ -70,8 +27,10 @@
           <article class="product__card">
               <div class="product__circle"></div>
               <img src="{{product.thumbnail_image.url}}" alt="{{product.title}}" class="product__img">
-              <h3 class="product__title">
-                  {{product.title}}
+              <h3 class="">
+                  <a class="product__title" href="{%url 'single_product' product.id%}">
+                    {{product.title}}
+                  </a>
               </h3>
               
               {% if product.discount_price %}

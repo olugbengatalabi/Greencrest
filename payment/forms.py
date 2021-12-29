@@ -9,7 +9,6 @@ PAYMENT_CHOICES = (
     ('P', 'PayStack')
 )
 
-
 class CheckoutForm(forms.Form):
     shipping_address = forms.CharField(required=False)
     shipping_address2 = forms.CharField(required=False)

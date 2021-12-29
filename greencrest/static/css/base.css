@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Playfair+Display+SC:wght@700&family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Playfair+Display+SC:wght@400;700&family=Poppins:wght@500;600&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -22,12 +22,16 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --header-font: 'Playfair Display SC', serif;
+  /* --header-font: 'Playfair Display SC', serif; */
+  --header-font:'Delius Swash Caps', cursive;
+  --header-font2: 'Playfair Display SC', serif;
+
   --body-font: 'Poppins', sans-serif;
   --big-font-size: 2rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
+  --h4-font-size: 0.8rem;
   --normal-font-size: .938rem;
   --small-font-size: .813rem;
   --smaller-font-size: .75rem;
@@ -35,6 +39,7 @@
   /*========== Font weight ==========*/
   --font-medium: 500;
   --font-semi-bold: 600;
+  --font-light: 300
 
   /*========== Margins==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -100,11 +105,11 @@ h1,h2,h3{
   font-weight: var(--font-semi-bold);
   
 }
-h1,h2 {
+h1, h2 {
   font-family: var(--header-font);
 }
 /* h2 {
-  font-family: 'Delius Swash Caps', cursive;
+  font-family: var(--header-font2)
 } */
 
 ul{
@@ -922,9 +927,11 @@ the website, in dark theme
     margin-left: auto;
   }
   .nav__btns{
+    padding: 0.2rem 1.1rem 0.2rem 0.9rem;
+  }
+  .nav__cart-container{
     border: 2.5px solid var(--title-color);
     border-radius: 5px;
-    padding: 0.2rem 1.1rem 0.2rem 0.9rem;
   }
   .cart__btn {
     color: var(--title-color);

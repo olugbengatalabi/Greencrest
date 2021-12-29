@@ -8,7 +8,7 @@ from products.models import Product
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.DecimalField(decimal_places=2, max_digits=100)
-    line_total = models.FloatField(null=True, blank=True)
+    line_total = models.DecimalField( decimal_places = 2, max_digits=100, null=True, blank=True)
     quantity = models.IntegerField(default=1)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     ordered = models.BooleanField(default=False)

@@ -13,21 +13,21 @@ from cart.models import Cart, CartItem
 def add_to_cart(request, id ):
   if request.method == "POST":
     quantity = int(request.POST["quantity"])
-
-    product = get_object_or_404(Product, id = id)
-    if product.discount_price is not None:
-      price = product.discount_price
-    else:
-      price = product.price
-    line_total = quantity * price
-    cart, new_cart = Cart.objects.get_or_create(user = request.user, ordered = False )
-    cart_item = CartItem.objects.create(user = request.user, product = product, ordered = False, price = price, quantity = quantity, line_total = line_total)
-    cart.cart_items.add(cart_item)
-    cart.save()
-    messages.info(request, 'Added to cart')
-    return redirect("single_product", id = id)
   else:
-    return redirect("single_product", id=id)
+    quantity = 1
+  product = get_object_or_404(Product, id = id)
+  if product.discount_price is not None:
+    price = product.discount_price
+  else:
+    price = product.price
+  line_total = quantity * price
+  cart, new_cart = Cart.objects.get_or_create(user = request.user, ordered = False )
+  cart_item = CartItem.objects.create(user = request.user, product = product, ordered = False, price = price, quantity = quantity, line_total = line_total)
+  cart.cart_items.add(cart_item)
+  cart.save()
+  messages.info(request, 'Added to cart')
+  return redirect("single_product", id = id)
+
 
 @login_required (login_url = "account_login")
 def remove_from_cart(request, id):
@@ -57,7 +57,7 @@ def clear_cart(request):
 def cart(request):
   try:
     cart = Cart.objects.get( user = request.user, ordered = False)
-    total = 0.00
+    total = 0
     cart_items = cart.cart_items.all()
     for item in cart_items:
       total+= item.line_total
