@@ -1,0 +1,218 @@
+/* main {
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0rem;
+  
+ 
+ } */
+main {
+  padding: 2.5rem;
+  margin: 5rem auto 0rem auto;
+}
+
+.description__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  margin-bottom: var(--mb-2-5);
+  max-width: 30rem;
+  
+  
+}
+.product__category {
+  margin: var(--mb-1) 0;
+  font-size: var(--normal-font-size);
+  font-weight: 300;
+  font-family: var(--header-font2);
+}
+.product__discription {
+  line-height: 1.8;
+  padding: 0;
+  font-weight: 400;
+  font-size: var(--smaller-font-size);
+  
+}
+.price__container{
+  margin-top: 1rem
+}
+/* test */
+.image_container {
+  margin-bottom: 5rem;  
+}
+.producti__img {
+  position: relative;
+
+  
+  justify-self: center;
+  margin-bottom: var(--mb-0-75);
+  transition: .3s;
+}
+
+.image__container {
+  overflow: initial;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+.image {
+  width: 10rem;
+  align-self: center;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after{
+    content: '';
+}
+.swiper-portfolio-icon{
+    font-size: 1rem;
+    color: var(--first-color);
+}
+.swiper-button-prev{
+    left: -.5rem;
+    top: 25.4rem;
+}
+.swiper-button-next {
+    right: -.5rem;
+    top: 25.4rem;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets{
+    bottom :-2.5rem;
+}
+.swiper-pagination-bullet-active{
+    background-color: var(--first-color);
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullets{
+    outline: none;
+}
+
+.cart__container {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.quantity-form__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  
+}
+.quantity__container{
+  border: var(--first-color) solid 2px;
+  padding: 0.6rem 0.8rem;
+  font-size: var(--normal-font-size);
+  color: var(--title-color);
+  border-radius: 5px;
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.quantity_label {
+  font-size: var(--small-font-size);
+}
+.quantity{
+  width:4rem;
+  padding: 1rem;
+  border: var(--first-color) solid 2px;
+  border-radius: 5px;
+  height: 1.5rem;
+  font-size:var(--smaller-font-size);
+}
+.quantity__container input:focus {
+  border: var(--first-color) solid 2px;
+  border-radius: 5px;
+}
+.cart-btn-group {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.add-to-cart__button {
+  border: var(--first-color) solid 2px;
+  padding: 0.6rem 0.8rem;
+  font-size: var(--smaller-font-size);
+  color: var(--title-color);
+  width: 10rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: color, background-color, width .3s ;
+  background-color: var(--body-color);
+}
+.add-to-cart__button:hover {
+  background-color: var(--first-color);
+  color: #fff;
+}
+.add-to-cart__button:active {
+  width: 11rem
+}
+
+.remove-from-cart__button {
+  border-bottom: var(--first-color) solid 2px;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-top: 3rem;
+  padding: 0.6rem 0.8rem;
+  transition: width .3s ease-in-out;
+  text-align: center;
+}
+.remove-from-cart__button:hover {
+  color: rgb(248, 2, 2);
+  border-bottom: red solid 2px;
+  width: 7rem;
+  
+}
+/* 
+    .home__content {
+        grid-template-columns: max-content 1fr 1fr;
+    }
+    .home__data {
+        grid-column:initial;
+    }
+    .home__img {
+        order:1;
+        justify-self:center
+
+    } */
+@media screen and (min-width:767px) {
+  
+}
+@media screen and (min-width: 976px) {
+  main {
+    padding: inherit;
+    display:grid;
+    grid-template-rows:1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6rem;
+    margin: 8rem auto 7rem auto;
+  }
+  .description__container{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .image_container {
+    margin-bottom: auto;
+  }
+  .producti__img { 
+  width: 17.4rem;
+  }
+  .image {
+    width: inherit;
+  }
+}

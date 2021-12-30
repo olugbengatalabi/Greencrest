@@ -99,7 +99,9 @@ button{
   border: none;
   outline: none;
 }
-
+.border {
+  border: red solid 2px;
+}
 h1,h2,h3{
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
@@ -245,6 +247,7 @@ the website, in dark theme
 }
 .cart {
   position: relative;
+  margin: 0%;
   /* display: inline-flex;
   justify-content: center; */
 }
@@ -267,6 +270,11 @@ the website, in dark theme
   padding: 0.06rem 0.3rem;
   color: #FFF;
   border-radius: 8px;
+}
+.cart__icon {
+  color: var(--title-color);
+  font-size: 1.25rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
@@ -1097,3 +1105,4 @@ the website, in dark theme
     right: 3rem;
   }
 }
+

@@ -3,3 +3,7 @@ make logout not show confirmation
 customize login, signup, password confirmation, forgot password, change password page
 setup google auth
 setup order history, open dispute, reviews and stars
+fix the icons to show login, sign up etc
+make email the log parameter
+change your email messages and look
+find somewhere to display the persons name

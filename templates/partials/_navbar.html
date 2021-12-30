@@ -65,11 +65,11 @@
               </div>
               <div class="nav__btns {%if user.is_authenticated%} nav__cart-container {%endif%}">
                   <!-- Theme change button -->
-                  <i class="ri-moon-line change-theme" id="theme-button"></i>
+                      <i class="ri-moon-line change-theme" id="theme-button"></i>
                   
                   {% if user.is_authenticated %}
                   <div class="cart">
-                      <a href="{% url 'cart'%}" class="nav__link cart__btn"><i class="ri-shopping-basket-line "></i></a>
+                      <a href="{% url 'cart'%}" class=" nav__link cart__btn"><i class=" cart__icon ri-shopping-basket-line "></i></a>
                       <span class="cart__count"> {{request.user|cart_item_count}} </span>
                       
                   </div>

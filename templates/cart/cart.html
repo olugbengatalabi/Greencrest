@@ -12,64 +12,97 @@
  
 
 {% block content %}  
-  <main class="container">
-    <h2>Basket</h2>
-    <section class="section">
-      <div class="table">
-        
-        <table class="table">
-          <thead class="">
-            <tr class="table-items">
-              <th scope="col">fgh</th>
-              <th scope="col">PLANT</th>
-              <th scope="col">PRICE</th>
-              <th scope="col">QUANTITY</th>
-              <th scope="col">SUBTOTAL</th>
 
-            </tr>
-          </thead>
-          <tbody>
-            {% for cart_item in cart_items %}
-            <tr class="table-items">
-              
-              <td>
-                <a href="{%url 'remove-from-cart-page' cart_item.id%}"><i class=" close__icon ri-close-line"></i></a>
-              </td>
-              <td>{{cart_item.product.title}}</td>
-              
-              {% if cart_item.product.discount_price %}
-              <td> ${{cart_item.product.discount_price}}</td>
-              {% else %}
-              <td>${{cart_item.product.price}}</td>
-              {% endif %}
-              <td>{{cart_item.quantity}}</td>
+  <main>
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-4">
+            <h2 class="heading-section">Cart</h2>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-md-12">
+            <h3 class="h5 mb-4 text-center">Table Accordion</h3>
+            <div class="table-wrap"> -->
+              <table class="table">
+                <thead class="thead-primary">
+                  <tr>
+                    <th class="display">&nbsp;</th>
+                    <!-- <th>&nbsp;</th> -->
+                    <th>Plant</th>
+                    
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cart_item in cart_items %}
+                  <tr class="alert" role="alert">
+                    <td>
+                      <a href="{%url 'remove-from-cart-page' cart_item.id%}"><i class=" close__icon ri-close-line"></i></a>
+                    </td>
+                    <!-- <td>
+                      <div>
+                        <img class="img" src={{cart_item.product.thumbnail_image.url}} alt="" srcset="">
+                      </div>
+                    </td> -->
+                    <!-- <td>
+                      <div class="email">
+                        <span>Sneakers Shoes 2020 For Men </span>
+                        <span>Fugiat voluptates quasi nemo, ipsa perferendis</span>
+                      </div>
+                    </td> -->
+                    <td class="title__div">
+                      <div>
+                      {{cart_item.product.title}}
+                    </div>
+                    {% if cart_item.product.discount_price %}
+                      ${{cart_item.product.discount_price}} 
+                    {% else %}
+                      ${{cart_item.product.price}} 
+                    {% endif %}
+                  </td>
+                    <td class="quantity">{{cart_item.quantity}}</td>
+                    
+                    
               <td>${{cart_item.line_total}}</td>
+                  </tr>
+                  {% endfor %}
+                  <tr>
+                    <td colspan="4">
+                      <b>Total: ${{cart_total}}</b>
+                    </td>
+                  </tr>
+                  <tr>
+                    
+                </tbody>
+              </table>
+              <div class="cart__group">
+
+                <a href="{%url 'checkout'%}" class="button button--flex">checkout<i class="ri-arrow-right-fill button__icon"></i>
               
+              </a>
+                <a href="{%url 'product_list'%}" class="add-to-cart__button">Back to shop<i class="ri-store-2-fill button__icon"></i>
               
-              
-            </tr>
-            {% endfor %}
-            <tr>
-              <td colspan="4">
-                <b>Total: ${{cart_total}}</b>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="5">
-                <a href="" class="btn btn-primary float-right">Continue shopping</a>
-                <a href="{%url 'checkout'%}" class="btn btn-warning float-right">Proceed to checkout</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </a>
+                <!-- <a class="add-to-cart__button" id="cart-btn">
+                Back to shop <i class="ri-store-2-fill button__icon"></i>
+            </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+  
   </main>
 {% endblock content %}
 {% block script %}
-<script src="{% static 'js/bootstrap.bundle.js'%}">
+<!-- <script src="{% static 'js/bootstrap.bundle.js'%}">
   
-</script>  
+</script>   -->
 
 {% endblock script %}
     
