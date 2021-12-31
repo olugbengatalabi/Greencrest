@@ -155,9 +155,20 @@ SOCIALACCOUNT_PROVIDERS = {
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         'APP': {
-            'client_id': '123',
-            'secret': '456',
+            'client_id': '560222353201-um9ll9akbo6sms7v5oggmfsihmaa60s0.apps.googleusercontent.com',
+            'secret': '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',
             'key': ''
+        }
+    }
+}
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline',
         }
     }
 }
@@ -165,6 +176,7 @@ LOGIN_REDIRECT_URL = "/"
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED =True
 ACCOUNT_USERNAME_REQUIRED =False
+ACCOUNT_LOGOUT_ON_GET=True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 PAYSTACK_SECRET_KEY ='sk_test_542cbe1d02abe032811d266603f9be5d9e8dae50'
 PAYSTACK_PUBLIC_KEY = 'pk_test_bb770600b8ea8b389212ed3a26120efadecacfce'

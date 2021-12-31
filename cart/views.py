@@ -22,11 +22,20 @@ def add_to_cart(request, id ):
     price = product.price
   line_total = quantity * price
   cart, new_cart = Cart.objects.get_or_create(user = request.user, ordered = False )
-  cart_item = CartItem.objects.create(user = request.user, product = product, ordered = False, price = price, quantity = quantity, line_total = line_total)
-  cart.cart_items.add(cart_item)
-  cart.save()
-  messages.info(request, 'Added to cart')
-  return redirect("single_product", id = id)
+  cart_item, created = CartItem.objects.get_or_create(user = request.user, product = product, ordered = False, price = price, quantity = quantity, line_total = line_total)
+  if created:
+    cart.cart_items.add(cart_item)
+    cart.save()
+    messages.info(request, 'Added to cart')
+  else:
+    messages.error(request, "Already in cart")
+
+  if "product-details" in request.META.get('HTTP_REFERER'):
+    return redirect("single_product", id = id)
+  elif "product_list" in request.META.get('HTTP_REFERER'):
+    return redirect("product_list")
+  else:
+    return redirect("index")
 
 
 @login_required (login_url = "account_login")

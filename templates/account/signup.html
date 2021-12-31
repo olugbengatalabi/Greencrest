@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
-
+{% load i18n %}
+{% load account socialaccount %}
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 {% block stylesheet %}
 <link rel="stylesheet" href="{%static 'css/login.css'%}">
@@ -31,8 +32,32 @@
           <div class="signup-form">
               {% include 'partials/_alerts.html' %}
               <h2 class="form-title">{% trans "Sign Up" %}</h2>
+              {% get_providers as socialaccount_providers %}
+
+              {% if socialaccount_providers %}
+      
+                
+      
+              <div class="socialaccount_ballot">
+      
+                <ul class="socialaccount_providers">
+                  {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </ul>
+      
+                <div class="login-or">{% trans 'or' %}</div>
+      
+              </div>
+      
+              {% include "socialaccount/snippets/login_extra.html" %}
+      
+              {% else %}
+              <p>{% blocktrans %}If you have not created an account yeeeeeeeeeeeeet, then please
+              <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+              {% endif %}
+                        
               <form method="POST" class="register-form signup django-login" id="register-form signup_form" action="{% url 'account_signup' %}">
                 {% csrf_token %}
+                {% include 'partials/alerts.html' %}
                 {% if form.non_field_errors %}
                 <div class="alert alert-warning">
                 <ul class="alert-message">
@@ -76,9 +101,10 @@
                       
                   </div>
               </form>
+
           </div>
-          <div class="signup-image">
-              <figure><img src="{% static 'img/signup-image.jpg'%}" alt="sing up image"></figure>
+          <div class="signup-image display">
+              <figure><img src="{% static 'img/signup-image.jpg'%}" alt="sign up image"></figure>
           </div>
       </div>
   </div>

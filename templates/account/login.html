@@ -8,7 +8,7 @@
 {% endblock stylesheet %}
   
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+<!-- {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 
 <main>
@@ -60,16 +60,17 @@
     </div>
     </div>
   </div>
-</main>
+</main> -->
 
 {% block content %}
 
 <main class="main">
   <section class="sign-in container">
+    {% include 'partials/_alerts.html' %}
       <div class="">
           <div class="signin-content">
               <div class="signin-image">
-                  <figure><img src="{%static 'img/signin-image.jpg'%}" alt="sing up image"></figure>
+                  <figure  class="display"><img src="{%static 'img/signin-image.jpg'%}" alt="sing up image"></figure>
                   
               </div>
 
@@ -78,9 +79,14 @@
                   {% get_providers as socialaccount_providers %}
 
         {% if socialaccount_providers %}
-        <p>{% blocktrans with site.name as site_name %}Please sign in with one
-        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-        for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+        <!-- <p>
+          {% blocktrans with site.name as site_name %}
+          
+        
+          Sign in with {% endblocktrans %}
+        </p>
+         -->
+          
 
         <div class="socialaccount_ballot">
 
@@ -122,11 +128,11 @@
                       </div> -->
                       <div class="sign-up__container">
 
-                        <button type="submit" name = "signin" id = "signin" class="button button--flex">
+                        <button type="submit" name = "signin" id = "signin" class="add-to-cart__button">
                           Log in
                           <i class="ri-arrow-right-fill button__icon"></i>
                       </button>
-                      <a href="{{signup_url}}" class="add-to-cart__button">signup<i class="ri-user-add-line button__icon"></i>
+                      <a href="{% url 'account_signup'%}" class="add-to-cart__button" style="padding: 0.5rem 0.8rem">Signup<i class="ri-user-add-line button__icon"></i>
                   
                       </a>
                     </div>

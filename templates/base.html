@@ -16,17 +16,17 @@
   <link rel="shortcut icon" href="{% static 'img/favicon.png'%}" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
+
 </head>
 <body>
   
   {% if not "accounts" in request.path %}
-  {% include 'partials/_navbar.html' %}
+  <!-- {% include 'partials/_navbar.html' %} -->
   {% endif %}
-  {% include 'partials/_alerts.html' %}
+  <!-- {% include 'partials/_alerts.html' %} -->
   {% block content %}
   {% endblock content %}
-  <!-- {% block extra_body %}
-  {% endblock %} -->
+
   <!--=============== SCROLL UP ===============-->
   <a href="#" class="scrollup" id="scroll-up"> 
     <i class="ri-arrow-up-fill scrollup__icon"></i>
