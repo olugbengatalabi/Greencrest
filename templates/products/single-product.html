@@ -12,13 +12,9 @@
   
   
 {% block content %}
-  
 
-<!--Main layout-->
-
-
+{% include 'partials/_alerts.html' %}
   <main class="container" >
-    {% include 'partials/_alerts.html' %}
     <section class=" description__container">
       <h1>{{product.title}}</h1>
       <h2 class="product__category">{{product.get_category_display}}</h2>

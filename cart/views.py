@@ -26,9 +26,9 @@ def add_to_cart(request, id ):
   if created:
     cart.cart_items.add(cart_item)
     cart.save()
-    messages.info(request, 'Added to cart')
+    messages.success(request, 'Added')
   else:
-    messages.error(request, "Already in cart")
+    messages.error(request, "Already in your cart")
 
   if "product-details" in request.META.get('HTTP_REFERER'):
     return redirect("single_product", id = id)
@@ -47,13 +47,13 @@ def remove_from_cart(request, id):
     if cart.cart_items.filter(product = product).exists():
       cart_item = CartItem.objects.filter(product = product, user = request.user, ordered = False)
       cart_item.delete()
-      messages.info(request, 'removed from cart')
+      messages.info(request, 'removed')
   return redirect("single_product", id = id)
 
 def remove_from_cart_page(request, id):
   cart_item = CartItem.objects.filter(id = id)
   cart_item.delete()
-  messages.info(request, "Deleted from cart")
+  messages.info(request, "Deleted")
   return redirect("cart")
 
 
@@ -78,9 +78,9 @@ def cart(request):
         "cart_total": total
       }
     else:
-      messages.info(request, "Cart is empty")
+      messages.info(request, "Empty")
       return redirect("/")  
   except Cart.DoesNotExist:
-    messages.error(request, "Cart is empty")
+    messages.error(request, "Empty")
     return redirect("/")
   return render(request, "cart/cart.html", context)

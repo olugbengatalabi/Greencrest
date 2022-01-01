@@ -142,11 +142,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 MESSAGE_TAGS = {
-    messages.DEBUG: 'alert-info',
-    messages.ERROR: 'alert-danger',
-    messages.INFO: 'alert-info',
-    messages.WARNING: 'alert-warning',
-    messages.SUCCESS: 'alert-success'
+    messages.DEBUG: 'information',
+    messages.ERROR: 'information',
+    messages.INFO: 'information',
+    messages.WARNING: 'information',
+    messages.SUCCESS: 'checkbox-circle'
 }
 
 SOCIALACCOUNT_PROVIDERS = {

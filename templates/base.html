@@ -21,9 +21,8 @@
 <body>
   
   {% if not "accounts" in request.path %}
-  <!-- {% include 'partials/_navbar.html' %} -->
+  {% include 'partials/_navbar.html' %}
   {% endif %}
-  <!-- {% include 'partials/_alerts.html' %} -->
   {% block content %}
   {% endblock content %}
 

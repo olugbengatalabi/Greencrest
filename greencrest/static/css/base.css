@@ -1106,3 +1106,42 @@ the website, in dark theme
   }
 }
 
+/* alerts */
+
+.alert__container {
+
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  padding: .6rem 1.2rem;
+  /* border: red solid 2px; */
+  background-color: var(--first-color-lighten);
+  border-radius: 5px;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 2;
+  min-width: 10rem;
+
+}
+
+.alert{
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-size: var(--normal-font-size);
+  
+
+}
+.alert p {
+  font-weight: var(--font-light);
+}
+.message__icon{
+  margin-right: 5px;
+  font-size: var(--small-font-size);
+  margin-top: 3px;
+
+}
+.display__alert{
+  display: none;
+}
