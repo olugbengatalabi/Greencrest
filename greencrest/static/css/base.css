@@ -1114,7 +1114,6 @@ the website, in dark theme
   justify-content: center;
   position: fixed;
   padding: .6rem 1.2rem;
-  /* border: red solid 2px; */
   background-color: var(--first-color-lighten);
   border-radius: 5px;
   top: 5rem;

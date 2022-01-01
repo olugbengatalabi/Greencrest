@@ -66,6 +66,39 @@
 
 <main class="main">
   {% include 'partials/_alerts.html' %}
+  {% if form.errors %}
+  <div class="alert__container">
+  {% for field in form %}
+      {% for error in field.errors %}
+
+        <div class="alert alert-error">
+              <!-- <strong>{{ error|escape }}</strong> -->
+              <div class="alert alert-dismissible text-center" role="alert">
+                <div class="message__icon">
+                  <i class="ri-{{message.tags}}-line"></i>
+                </div>
+                <p>
+                  {{error|escape }}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+  {% endfor %}
+  {% for error in form.non_field_errors %}
+      <div class="alert alert-error">
+          <!-- <strong>{{ error|escape }}</strong> -->
+          <div class="alert alert-dismissible text-center" role="alert">
+            <div class="message__icon">
+              <i class="ri-information-line"></i>
+            </div>
+            <p>
+              {{ error|escape }}
+            </p>
+          </div>
+      </div>
+  {% endfor %}
+</div>
+  {% endif %}
   <section class="sign-in container">
       <div class="">
           <div class="signin-content">
@@ -108,20 +141,6 @@
         
         <form method="POST" class="register-form" action="{% url 'account_login' %}" id="login-form">
           {% csrf_token %}
-          {% if form.errors %}
-          {% for field in form %}
-              {% for error in field.errors %}
-                  <div class="alert alert-error">
-                      <strong>{{ error|escape }}</strong>
-                  </div>
-              {% endfor %}
-          {% endfor %}
-          {% for error in form.non_field_errors %}
-              <div class="alert alert-error">
-                  <strong>{{ error|escape }}</strong>
-              </div>
-          {% endfor %}
-          {% endif %}
           <div class="form-group">
                           <label for="your_email"><i class="zmdi zmdi-account material-icons-name"></i></label>
                           <!-- <input type="text" name="your_name" id="your_name" placeholder="Your Name"/> -->
