@@ -1028,9 +1028,7 @@ the website, in dark theme
   .steps__card-title{
     font-size: var(--normal-font-size);
   }
-  /* .product {
-    max-width: fit-content;
-  } */
+
   .product__description{
     padding: 0 16rem;
   }

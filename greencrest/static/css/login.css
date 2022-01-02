@@ -186,8 +186,9 @@ h2 {
   font-family: Poppins;
   font-size: 36px; }
 
-.main {
-  padding: 3rem 0; }
+/* .main {
+  padding: 3rem 0;
+ } */
 
 .clear {
   clear: both; }
@@ -452,7 +453,8 @@ label.valid {
 
 .signin-content {
   padding-top: 67px;
-  padding-bottom: 87px; }
+  padding-bottom: 87px;
+}
 
 .social-login {
   align-items: center;
@@ -654,6 +656,10 @@ label.valid {
     @media screen and (max-width: 576px) {
       .display {
         display: none;
+      }
+      .signin-content {
+        padding-top: 20px;
+        padding-bottom: 87px;
       }
     }
 /*# sourceMappingURL=style.css.map */

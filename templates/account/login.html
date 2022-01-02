@@ -67,7 +67,7 @@
 <main class="main">
   {% include 'partials/_alerts.html' %}
   {% if form.errors %}
-  <div class="alert__container">
+  <div class="alert__container" id="alert__container">
   {% for field in form %}
       {% for error in field.errors %}
 

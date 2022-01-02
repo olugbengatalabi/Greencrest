@@ -19,10 +19,11 @@
 
 </head>
 <body>
-  
+    
   {% if not "accounts" in request.path %}
   {% include 'partials/_navbar.html' %}
   {% endif %}
+  
   {% block content %}
   {% endblock content %}
 
@@ -42,6 +43,7 @@
         
   <!--=============== MAIN JS ===============-->
 
+  <script src="{% static 'js/alerts.js'%}"></script>
   <script src="{% static 'js/main.js'%}"></script>
 
 
