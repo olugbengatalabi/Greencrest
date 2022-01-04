@@ -186,8 +186,9 @@ h2 {
   font-family: Poppins;
   font-size: 36px; }
 
-.main {
-  padding: 150px 0; }
+/* .main {
+  padding: 3rem 0;
+ } */
 
 .clear {
   clear: both; }
@@ -450,9 +451,10 @@ label.valid {
 .material-icons-name {
   font-size: 18px; }
 
-/* .signin-content {
+.signin-content {
   padding-top: 67px;
-  padding-bottom: 87px; } */
+  padding-bottom: 87px;
+}
 
 .social-login {
   align-items: center;
@@ -514,7 +516,39 @@ label.valid {
   margin-left: 110px;
   margin-right: 20px;
   margin-top: 10px; }
-
+.socialaccount_ballot{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.socialaccount_providers li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.socialaccount_providers li a{
+  border: #DB4437 solid 2px;
+  padding: 0.6rem 0.8rem;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+  color: #DB4437;
+  width: 8rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: color, background-color, width .3s ;
+  background-color: var(--body-color);
+  margin-top: 0.2rem;
+}
+.socialaccount_providers li a:active {
+  width: 9rem;
+}
+.login-or {
+  margin-bottom: 0.2rem;
+}
 @media screen and (max-width: 1200px) {
   .container {
     width: calc( 100% - 30px);
@@ -577,6 +611,36 @@ label.valid {
 
   .form-title {
     text-align: center; } }
+
+  .sign-up__container{
+      display:flex;
+      flex-direction:row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .add-to-cart__button {
+      border: var(--first-color) solid 2px;
+      padding: 0.6rem 0.8rem;
+      font-size: var(--smaller-font-size);
+      font-weight: var(--font-semi-bold);
+      color: var(--title-color);
+      width: 8rem;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      transition: color, background-color, width .3s ;
+      background-color: var(--body-color);
+      margin-top: 1rem;
+    }
+    .add-to-cart__button:hover {
+
+      background-color: var(--first-color);
+      color: #fff;
+    }
+    .add-to-cart__button:active {
+      width: 11rem
+    }
 @media screen and (max-width: 400px) {
   .social-login {
     flex-direction: column;
@@ -588,5 +652,14 @@ label.valid {
   .social-label {
     margin-right: 0px;
     margin-bottom: 10px; } }
-
+  
+    @media screen and (max-width: 576px) {
+      .display {
+        display: none;
+      }
+      .signin-content {
+        padding-top: 20px;
+        padding-bottom: 87px;
+      }
+    }
 /*# sourceMappingURL=style.css.map */

@@ -83,4 +83,4 @@ def cart(request):
   except Cart.DoesNotExist:
     messages.error(request, "Empty")
     return redirect("/")
-  return render(request, "cart/cart.html", context)
+  return render(request, "cart/cart2.html", context)
