@@ -81,6 +81,6 @@ def cart(request):
       messages.info(request, "Empty")
       return redirect("/")  
   except Cart.DoesNotExist:
-    messages.error(request, "Empty")
+    messages.error(request, "Empty, add a product to cart now")
     return redirect("/")
   return render(request, "cart/cart2.html", context)

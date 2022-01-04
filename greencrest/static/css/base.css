@@ -1112,7 +1112,7 @@ the website, in dark theme
   justify-content: center;
   position: fixed;
   padding: .6rem 1.2rem;
-  background-color: var(--first-color-lighten);
+  background-color: var(--first-color);
   border-radius: 5px;
   top: 5rem;
   left: 50%;
@@ -1127,17 +1127,19 @@ the website, in dark theme
   justify-content: space-evenly;
   width: 100%;
   font-size: var(--normal-font-size);
+  color: var(--text-color);
   
 
 }
 .alert p {
   font-weight: var(--font-light);
+  color: #FFF;
 }
 .message__icon{
   margin-right: 5px;
   font-size: var(--small-font-size);
   margin-top: 3px;
-
+  color: #FFF;
 }
 .display__alert{
   display: none;

@@ -52,4 +52,4 @@ setup messages to show up with login required pages
 check out page with bootstrap
 paystack payment review
 add animation classes to the relevant secions in all pages
-on logout, the user should be redirected to the login page
+on logout, the user should be redirected to the login page with a message
