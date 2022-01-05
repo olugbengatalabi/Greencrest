@@ -1122,7 +1122,7 @@ the website, in dark theme
 
 }
 
-.alert{
+.alert-c{
   display: inline-flex;
   justify-content: space-evenly;
   width: 100%;
@@ -1131,7 +1131,7 @@ the website, in dark theme
   
 
 }
-.alert p {
+.alert-c p {
   font-weight: var(--font-light);
   color: #FFF;
 }

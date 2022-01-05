@@ -7,11 +7,10 @@
 {% endblock stylesheet %}
   
 {% block content %}
-
+  {% include 'partials/_alerts.html' %}
   <main >
     <div class="container wow fadeIn">
       <h2 class="my-5 h2 text-center">Checkout form</h2>
-      {% include 'partials/_alerts.html' %}
       <div class="row">
         <div class="col-md-8 mb-4">
           <div class="card">
@@ -128,7 +127,7 @@
               </div> -->
 
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Make payment</button>
+              <button class="button btn-lg btn-block" type="submit">Make payment</button>
 
             </form>
 
@@ -148,6 +147,7 @@
 {% endblock content %}
 
 {% block script %}
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 <script>
 var hideable_shipping_form = $('.hideable_shipping_form');
 var hideable_billing_form = $('.hideable_billing_form');

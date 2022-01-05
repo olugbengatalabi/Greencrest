@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
   <meta http-equiv="x-ua-compatible" content="ie=edge">  
   <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
@@ -32,8 +32,7 @@
     <i class="ri-arrow-up-fill scrollup__icon"></i>
 </a>
 
-{% if not "accounts" in request.path%}
- 
+{% if not "accounts" or  not "initiate-payment" in request.path%}
 {% include 'partials/_footer.html' %}
 {% endif %}
 
@@ -44,6 +43,9 @@
   <!--=============== MAIN JS ===============-->
 
   <script src="{% static 'js/alerts.js'%}"></script>
+  <script src="{% static 'js/bootstrap.jquery.min.js'%}">
+  
+  </script>  
   <script src="{% static 'js/main.js'%}"></script>
 
 

@@ -185,11 +185,11 @@ class CheckoutView(View):
 def get_coupon(request, code, cart):
     try:
         coupon = Coupon.objects.get(code=code)
-        messages.success(request, "Successfully added coupon")
+        messages.success(request, "coupon added")
         cart.coupon = coupon
         cart.save()
     except ObjectDoesNotExist:
-        messages.error(request, "This coupon does not exist")
+        messages.error(request, "coupon does not exist")
         return redirect("checkout")
     # amount = coupon.amount
     # new_total = cart.total - amount
@@ -207,11 +207,11 @@ class AddCouponView(View):
                 if cart:
                     try:
                         coupon = Coupon.objects.get(code=code)
-                        messages.success(self.request, "Successfully added coupon")
+                        messages.success(self.request, " coupon added")
                         cart.coupon = coupon
                         cart.save()
                     except ObjectDoesNotExist:
-                        messages.error(self.request, "This coupon does not exist")
+                        messages.error(self.request, "coupon does not exist")
                         return redirect("checkout")
 
                     amount = coupon.amount
@@ -228,6 +228,7 @@ class AddCouponView(View):
             messages.error(self.request, "Not a valid coupon code")
             return redirect("checkout")
 
+
 @login_required(login_url="account_login")
 def initiate_payment(request):
     cart = Cart.objects.get(user = request.user, ordered = False)
@@ -238,10 +239,13 @@ def initiate_payment(request):
         "paystack_public_key": settings.PAYSTACK_PUBLIC_KEY
         }
     return render(request, "payment/make_payment.html", context)
-        
+
+
+
+
 @login_required(login_url="account_login")
 def verify_payment(request, ref):
-    cart = get_object_or_404(Cart, user = request.user)
+    cart = get_object_or_404(Cart, user = request.user, ordered = False)
     payment = get_object_or_404(Payment, ref = ref)
     verified = payment.verify_payment()
     if verified:
@@ -251,8 +255,8 @@ def verify_payment(request, ref):
             item.ordered = True
             item.save()
         cart.save()
-        messages.success(request, "Verification Successful, continue shopping")
+        messages.success(request, "payment verified")
     else:
-        messages.error(request, "verification failed, contact support for more details")
+        messages.error(request, " payment verification failed")
     return redirect("/")
 

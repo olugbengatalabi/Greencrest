@@ -1,17 +1,39 @@
-{% if messages %}
-<div class="alert__container" id="alert__container">
-  {% for message in messages  %}
-      <div class="alert alert-dismissible text-center" role="alert">
-        <div class="message__icon">
-          <i class="ri-{{message.tags}}-line"></i>
+
+{% if not "checkout" in request.path %}
+  {% if messages %}
+  <div class="alert__container" id="alert__container">
+    {% for message in messages  %}
+        <div class="alert-c" role="alert">
+          <div class="message__icon">
+            <i class="ri-{{message.tags}}-line"></i>
+          </div>
+          <p>
+            {{message}}
+          </p>
         </div>
-        <p>
-          {{message}}
-        </p>
+        
+        {% endfor %}
       </div>
       
-      {% endfor %}
+  {% endif %}
+{% else %}
+  {% if messages %}
+  <div class="margin container" id="message">
+    {% for message in messages %}
+    <div class="alert text-center {{message.tags}} alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>
+        {{message}}
+      </strong>
+
     </div>
-    
+    {% endfor %}
+  </div>
+  {% endif %}
+
 {% endif %}
+  
+
 
