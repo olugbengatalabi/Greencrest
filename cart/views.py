@@ -9,33 +9,37 @@ from products.models import Product
 from cart.models import Cart, CartItem
 
 
-@login_required (login_url = "account_login")
-def add_to_cart(request, id ):
-  if request.method == "POST":
-    quantity = int(request.POST["quantity"])
-  else:
-    quantity = 1
-  product = get_object_or_404(Product, id = id)
-  if product.discount_price is not None:
-    price = product.discount_price
-  else:
-    price = product.price
-  line_total = quantity * price
-  cart, new_cart = Cart.objects.get_or_create(user = request.user, ordered = False )
-  cart_item, created = CartItem.objects.get_or_create(user = request.user, product = product, ordered = False, price = price, quantity = quantity, line_total = line_total)
-  if created:
-    cart.cart_items.add(cart_item)
-    cart.save()
-    messages.success(request, 'Added')
-  else:
-    messages.error(request, "Already in your cart")
 
-  if "product-details" in request.META.get('HTTP_REFERER'):
-    return redirect("single_product", id = id)
-  elif "product_list" in request.META.get('HTTP_REFERER'):
-    return redirect("product_list")
+def add_to_cart(request, id ):
+  if request.user.is_authenticated:
+    if request.method == "POST":
+      quantity = int(request.POST["quantity"])
+    else:
+      quantity = 1
+    product = get_object_or_404(Product, id = id)
+    if product.discount_price is not None:
+      price = product.discount_price
+    else:
+      price = product.price
+    line_total = quantity * price
+    cart, new_cart = Cart.objects.get_or_create(user = request.user, ordered = False )
+    cart_item, created = CartItem.objects.get_or_create(user = request.user, product = product, ordered = False, price = price, quantity = quantity, line_total = line_total)
+    if created:
+      cart.cart_items.add(cart_item)
+      cart.save()
+      messages.success(request, 'Added')
+    else:
+      messages.error(request, "Already in cart")
+
+    if "product-details" in request.META.get('HTTP_REFERER'):
+      return redirect("single_product", id = id)
+    elif "product_list" in request.META.get('HTTP_REFERER'):
+      return redirect("product_list")
+    else:
+      return redirect("index")
   else:
-    return redirect("index")
+    messages.error(request, "Sign up required")
+    return redirect("account_login")
 
 
 @login_required (login_url = "account_login")
