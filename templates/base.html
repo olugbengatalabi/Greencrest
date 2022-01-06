@@ -32,7 +32,11 @@
     <i class="ri-arrow-up-fill scrollup__icon"></i>
 </a>
 
-{% if not "accounts" or  not "initiate-payment" in request.path%}
+{% if "accounts" in request.path%}
+<br>
+{% elif "initiate-payment" in request.path%}
+  <br>
+{% else %}
 {% include 'partials/_footer.html' %}
 {% endif %}
 
