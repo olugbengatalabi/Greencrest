@@ -8,7 +8,7 @@
 {% endblock stylesheet %}
   
 
-<!-- {% block head_title %}{% trans "Sign In" %}{% endblock %}
+
 
 
 <main>
@@ -72,7 +72,6 @@
       {% for error in field.errors %}
 
         <div class="alert alert-error">
-              <!-- <strong>{{ error|escape }}</strong> -->
               <div class="alert alert-dismissible text-center" role="alert">
                 <div class="message__icon">
                   <i class="ri-{{message.tags}}-line"></i>
@@ -112,13 +111,7 @@
                   {% get_providers as socialaccount_providers %}
 
         {% if socialaccount_providers %}
-        <!-- <p>
-          {% blocktrans with site.name as site_name %}
-          
-        
-          Sign in with {% endblocktrans %}
-        </p>
-         -->
+
           
 
         <div class="socialaccount_ballot">
@@ -143,22 +136,20 @@
           {% csrf_token %}
           <div class="form-group">
                           <label for="your_email"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                          <!-- <input type="text" name="your_name" id="your_name" placeholder="Your Name"/> -->
+                          
                           {{ form.login }}
                       </div>
                       <div class="form-group">
                           <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                          <!-- <input type="password" name="your_pass" id="your_pass" placeholder="Password"/> -->
+
                           {{ form.password }}
                       </div>
                       <div class="form-group">
-                          <!-- <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" /> -->
+
                           {{ form.remember }}
                           <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                       </div>
-                      <!-- <div class="form-group form-button">
-                          <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
-                      </div> -->
+
                       <div class="sign-up__container">
 
                         <button type="submit" name = "signin" id = "signin" class="add-to-cart__button">
@@ -173,37 +164,7 @@
                   
                     </a>
                   </form>
-<!-- 
-        {% if socialaccount_providers %}
-        <p>{% blocktrans with site.name as site_name %} sign in with one
-        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-        for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-        
-        <div class="socialaccount_ballot">
 
-          <ul class="socialaccount_providers">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-          </ul>
-
-          <div class="login-or">{% trans 'or' %}</div>
-          <div class="social-login">
-            <span class="social-label">Or login with</span>
-            <ul class="socials">
-                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-            </ul>
-        </div>
-
-        </div>
-
-        {% include "socialaccount/snippets/login_extra.html" %}
-
-        {% else %}
-        <p>{% blocktrans %}If you have not created an account yeeeeeeeeeeeeet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-        {% endif %} -->
-        
               </div>
           </div>
       </div>

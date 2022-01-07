@@ -15,7 +15,7 @@ from cart.models import CartItem, Cart
 from products.models import Product
 from payment.models import Address, Coupon, Payment, Refund, UserProfile
 
-# Create your views here.
+
 def is_valid_form(values):
     valid = True
     for field in values:
@@ -23,7 +23,6 @@ def is_valid_form(values):
             valid = False
     return valid
 
-# @login_required(login_url="account_login")
 class CheckoutView(View):
     def get(self, *args, **kwargs):
         try:
@@ -167,16 +166,7 @@ class CheckoutView(View):
                         )
                         return redirect("checkout")
 
-                # payment_option = form.cleaned_data.get("payment_option")
                 return redirect("initiate-payment")
-            
-                # if payment_option == "S":
-                #     return redirect("payment", payment_option="stripe")
-                # elif payment_option == "P":
-                #     return redirect("payment", payment_option="paystack")
-                # else:
-                #     messages.warning(self.request, "Invalid payment option selected")
-                #     return redirect("checkout")
         except ObjectDoesNotExist:
             messages.warning(self.request, "Cannot pay for an empty cart")
             return redirect("/")
