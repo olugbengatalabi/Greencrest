@@ -1,6 +1,0 @@
-Future additions
-1. asynchronous cart
-2. django rest framewor
-3. setup dispute and reqeust-refund functionalities
-4. add reviews and product ratings
-5.
