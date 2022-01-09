@@ -6,61 +6,6 @@
 {% block stylesheet %}
 <link rel="stylesheet" href="{%static 'css/login.css'%}">
 {% endblock stylesheet %}
-  
-
-
-
-
-<main>
-  <div class="container">
-    <div class="text-center b-4">
-      <div class="row wow fadeIn">
-        <div class="col-12">
-
-        
-        <h1>{% trans "Sign In" %}</h1>
-
-        {% get_providers as socialaccount_providers %}
-
-        {% if socialaccount_providers %}
-        <p>{% blocktrans with site.name as site_name %}Please sign in with one
-        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-        for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-        <div class="socialaccount_ballot">
-
-          <ul class="socialaccount_providers">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-          </ul>
-
-          <div class="login-or">{% trans 'or' %}</div>
-
-        </div>
-        
-        {% include "socialaccount/snippets/login_extra.html" %}
-        
-        {% else %}
-        <p>{% blocktrans %}If you have not created an account yeeeeeeeeeeeeet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-        {% endif %}
-
-        <form class="login" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          {{ form|crispy }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-        </form>
-
-
-        
-      </div>
-    </div>
-    </div>
-  </div>
-</main> -->
 
 {% block content %}
 
@@ -107,7 +52,7 @@
               </div>
 
               <div class="signin-form">
-                  <h2 class="form-title">{% trans "Sign in" %}</h2>
+                  <h2 class="form-title" style="text-align: center;">{% trans "Sign in" %}</h2>
                   {% get_providers as socialaccount_providers %}
 
         {% if socialaccount_providers %}
@@ -143,11 +88,14 @@
                           <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
 
                           {{ form.password }}
+                          <a href="{% url 'account_reset_password'%}" style="color:black; font-size:small;">Forgot password
+                          </a>
                       </div>
+                      
                       <div class="form-group">
 
                           {{ form.remember }}
-                          <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                          <label for="remember-me" class="label-agree-term" style="text-align: center;"><span><span></span></span>Remember me</label>
                       </div>
 
                       <div class="sign-up__container">
@@ -160,10 +108,8 @@
                   
                       </a>
                     </div>
-                    <a href="{% url 'account_reset_password'%}" class="add-to-cart__button" style="padding: 0.5rem 0.8rem">Forgot password<i class="ri-user-add-line button__icon"></i>
-                  
-                    </a>
                   </form>
+                 
 
               </div>
           </div>

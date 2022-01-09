@@ -8,20 +8,6 @@
 <link rel="stylesheet" href="{%static 'css/login.css'%}">
 {% endblock stylesheet %}
   
-  
-<!-- <h1>{% trans "Sign Up" %}</h1>
-
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form> -->
-
 
 
 {% block content %}
@@ -31,7 +17,7 @@
       <div class="signup-content">
           <div class="signup-form">
               {% include 'partials/_alerts.html' %}
-              <h2 class="form-title">{% trans "Sign Up" %}</h2>
+              <h2 class="form-title"style="text-align: center;">{% trans "Sign Up" %}</h2>
               {% get_providers as socialaccount_providers %}
 
               {% if socialaccount_providers %}
@@ -51,7 +37,7 @@
               {% include "socialaccount/snippets/login_extra.html" %}
       
               {% else %}
-              <p>{% blocktrans %}If you have not created an account yeeeeeeeeeeeeet, then please
+              <p>{% blocktrans %}If you have not created an account yet, then please
               <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
               {% endif %}
                         
@@ -72,36 +58,29 @@
                     </div>
                 {% endfor %}
                 {% endif %}
-                  <!-- <div class="form-group">
-                      <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                      <input type="text" name="name" id="name" placeholder="Full Name"/>
-                  </div> -->
+
                   <div class="form-group {% if form.login.errors %}has-error{% endif %}">
                       <label for="email"><i class="zmdi zmdi-email"></i></label>
-                      <!-- <input type="email" name="email" id="email" placeholder="Email"/> -->
+                      
                       {{ form.email }}
                   </div>
-                  <!-- <div class="form-group {% if form.login.errors %}has-error{% endif %}">
-                    <label for="username"><i class="zmdi zmdi-email"></i></label>
-                    <input type="email" name="email" id="email" placeholder="Email"/>
-                    {{ form.username }}
-                </div> -->
+
                   <div class="form-group {% if form.login.errors %}has-error{% endif %}">
                       <label for="password1"><i class="zmdi zmdi-lock"></i></label>
-                      <!-- <input type="password" name="pass" id="pass" placeholder="Password"/> -->
+                     
                       {{ form.password1 }}
 
                   </div>
                   <div class="form-group {% if form.login.errors %}has-error{% endif %}">
                       <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                      <!-- <input type="password" name="re_pass" id="re_pass" placeholder="Confirm password"/> -->
+                      
                       {{ form.password2 }}
                   </div>
                   {% if redirect_field_value %}
                   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                   {% endif %}
                   <div class="form-group form-button">
-                      <!-- <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/> -->
+                      
                       <button type="submit" name="signup" id="signup" class="button button--flex">{% trans "Sign Up" %} <i class="ri-user-add-line"></i></button>
                       
                   </div>

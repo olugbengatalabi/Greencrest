@@ -13,7 +13,7 @@ def product_list(request):
       search= request.GET["search"]
       if search != "" and search is not None:
         queryset = Product.objects.filter(Q(title__icontains=search) | Q(category__icontains=search) | Q(description__icontains=search))
-  paginator = Paginator(queryset, 20)
+  paginator = Paginator(queryset, 3)
   page = request.GET.get('page')
   paged_products = paginator.get_page(page)
   context = {

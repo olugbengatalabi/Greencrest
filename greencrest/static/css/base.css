@@ -1144,3 +1144,34 @@ the website, in dark theme
 .display__alert{
   display: none;
 }
+.pagination__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--mb-2);
+  justify-self: center;
+  
+
+}
+.pagination {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+.pagination a {
+  color: var(--text-color);
+  margin-left: 5px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: var(--first-color);
+  color: #FFF;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}

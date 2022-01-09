@@ -8322,7 +8322,7 @@ h1, h2, h3, h4, h5,
       padding: 0.6rem 0.8rem;
       transition: width .3s ease-in-out;
       text-align: center;
-      /* float:right; */
+
     }
     .remove-from-cart__button:hover {
       color: teal;
