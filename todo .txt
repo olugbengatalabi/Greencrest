@@ -1,56 +1,6 @@
-in the homepage
-{% comment %} change it from plantopia to green crest {% endcomment %}
-
-
-Add a cart icon and count to the navbar
-remove faqs and about 
-make the products link take you to the all products page
-make the social meddia links work
-clicking on the logo should take you home
-about should become about us
-add a login and link to display if not authenticated
-cart and profile icon 
-prodile icon tric=ggers a dropdownmenu oncick that shows order history, favorites and disputes and logout
-make the scrollbar different for light and darkmode
-
-navbar : products about faq signup contactus
-        products about faq cart contactus signout
-        s
-
-
-new pages to add
-all products pages
-
-display all products
-add a search icon in the products page 
-show different categories of products (plants)
-
-cart page
-
-checkout page
-
-success page after payment that redirects you to the homepage
-customize the messages..
-find better descripptions and taglines
-
-make research for beautiful minimalistic messages.. probably do the one with dark green borders and white background
-
-create a contact us app that allows us to send messages from the footer
-
-
-
-
-customize templates for
-forgot password 
-reset password
-verification email sent
-verification error
-verificartion successful
-get an email sender
-ensure all the necessary pages can see messages
-setup messages to show up with login required pages
-check out page with bootstrap
-paystack payment review
-add animation classes to the relevant secions in all pages
-make the title clickable in cart
-on logout, the user should be redirected to the login page with a message
+Future additions
+1. asynchronous cart
+2. django rest framewor
+3. setup dispute and reqeust-refund functionalities
+4. add reviews and product ratings
+5.
