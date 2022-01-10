@@ -221,8 +221,10 @@ class AddCouponView(View):
 
 @login_required(login_url="account_login")
 def initiate_payment(request):
-    cart = Cart.objects.get(user = request.user, ordered = False)
-    payment = Payment.objects.create(amount = cart.total, email = request.user.email, )
+    # cart = Cart.objects.get(user = request.user, ordered = False)
+    # cart = Cart.objects.filter(user = request.user, ordered = False)
+    cart = get_object_or_404(Cart, user = request.user, ordered = False)
+    payment = Payment.objects.create(amount = cart.total, email = request.user.email,cart = cart )
     context = {
         "payment": payment,
             
