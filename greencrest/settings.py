@@ -178,5 +178,9 @@ ACCOUNT_EMAIL_REQUIRED =True
 ACCOUNT_USERNAME_REQUIRED =False
 ACCOUNT_LOGOUT_ON_GET=True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-PAYSTACK_SECRET_KEY ='sk_test_542cbe1d02abe032811d266603f9be5d9e8dae50'
-PAYSTACK_PUBLIC_KEY = 'pk_test_bb770600b8ea8b389212ed3a26120efadecacfce'
+PAYSTACK_SECRET_KEY ='sk_test_542cbe1d02abe032811d266603f9be5d9
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
