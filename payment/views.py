@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.views.generic import View
 
-from greencrest.settings import PAYSTACK_PUBLIC_KEY
+from greencrest.local_settings import PAYSTACK_PUBLIC_KEY
 
 from .forms import CheckoutForm, CouponForm, RefundForm
 from cart.models import CartItem, Cart

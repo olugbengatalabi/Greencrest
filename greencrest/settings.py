@@ -77,16 +77,6 @@ WSGI_APPLICATION = 'greencrest.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'greencrest',
-        'USER': 'postgres',
-        'PASSWORD': 'gbeng97a',
-        'HOST': 'localhost'
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -149,36 +139,14 @@ MESSAGE_TAGS = {
     messages.SUCCESS: 'checkbox-circle'
 }
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': '560222353201-um9ll9akbo6sms7v5oggmfsihmaa60s0.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        }
-    }
-}
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'offline',
-        }
-    }
-}
+
+
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED =True
 ACCOUNT_USERNAME_REQUIRED =False
 ACCOUNT_LOGOUT_ON_GET=True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-PAYSTACK_SECRET_KEY ='sk_test_542cbe1d02abe032811d266603f9be5d9'
 
 try:
     from .local_settings import *
