@@ -23,3 +23,7 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
+
+
+views paystack public key
+settings db and google

@@ -228,7 +228,7 @@ def initiate_payment(request):
     context = {
         "payment": payment,
             
-        "paystack_public_key": settings.PAYSTACK_PUBLIC_KEY
+        "paystack_public_key": PAYSTACK_PUBLIC_KEY
         }
     return render(request, "payment/make_payment.html", context)
 

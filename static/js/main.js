@@ -152,6 +152,7 @@ sr.reveal(`.table`, { delay: 400 });
 
 
 
+
 // // allauth alerts
 // alertContainer = document.getElementById("alert__container");
 

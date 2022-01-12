@@ -88,14 +88,8 @@
                           <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
 
                           {{ form.password }}
-                          <a href="{% url 'account_reset_password'%}" style="color:black; font-size:small;">Forgot password
+                          <a href="{% url 'account_reset_password'%}" style="color: var(--text-color); font-size:smaller;">Forgot password
                           </a>
-                      </div>
-                      
-                      <div class="form-group">
-
-                          {{ form.remember }}
-                          <label for="remember-me" class="label-agree-term" style="text-align: center;"><span><span></span></span>Remember me</label>
                       </div>
 
                       <div class="sign-up__container">
