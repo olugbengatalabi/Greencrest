@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">  
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> 
   <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
     {% endblock %}
@@ -40,10 +40,13 @@
 {% include 'partials/_footer.html' %}
 {% endif %}
 
-  <script src="{% static 'js/scrollreveal.min.js' %}"></script>
+
   {% block script %}
   {% endblock script %}
-        
+  <script src="{% static 'js/scrollreveal.min.js' %}"></script>
+  <script src="{% static 'js/reveal.js' %}"></script>
+  <script> ScrollReveal ({reset:true})</script>
+
   <!--=============== MAIN JS ===============-->
 
   <script src="{% static 'js/alerts.js'%}"></script>

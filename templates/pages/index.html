@@ -146,13 +146,15 @@
                     </article>
                         
                     {% endfor %}
-                        <button  class=" button button--flex" href="{%url 'product_list'%}">
-                            
-                                To shop
+                        
+                    <div class="allproducts__button">
+                        <a href="{%url 'product_list'%}">
+                            <button class=" button button--flex">
+                                Shop
                                 <i class="ri-arrow-right-fill button__icon"></i>
-                            
-                        </button>
-                    
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </section>
 

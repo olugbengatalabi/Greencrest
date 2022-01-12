@@ -78,6 +78,9 @@
 html{
   scroll-behavior: smooth;
 }
+html.sr .load-hidden {
+  visibility: hidden;
+}
 
 body,
 button,
